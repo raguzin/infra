@@ -1,0 +1,3 @@
+packer/variables.json
+packer/congfig-scripts/create-reddit-full-vm.sh
+packer/congfig-scripts/create-reddit-base-vm.sh
