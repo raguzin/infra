@@ -51,7 +51,7 @@
 <br>
 <br>
 <h2>TERRAFORM</h2>
-<p>Для тестового приложения создаются две ВМ из подготовленного в Packer образа с reddit-app.</p><br>
+<p>Для тестового приложения создаются две ВМ из подготовленного в Packer образа с reddit-app.</p>
 <br>
 <p><b>main.tf</b> - основной файл terraform, описывающий провайдер google для взаимодействия с GCP.<br>
     <b>network-firewall.tf</b> - описание настроек firewall.<br>
