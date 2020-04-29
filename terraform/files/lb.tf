@@ -21,3 +21,8 @@ resource "google_compute_http_health_check" "health_check" {
   timeout_sec        = 1
   port = "9292"
 }
+
+# show external ip address of load balancer
+output "load-balancer-ip-address" {
+  value = google_compute_forwarding_rule.forwarding_rule.ip_address
+}

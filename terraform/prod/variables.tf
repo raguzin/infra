@@ -6,13 +6,13 @@ variable project {
 # определение региона
 variable region {
   description = "Region"
-  default = "europe-west1"
+  default     = "europe-west1"
 }
 
 # определение зоны
 variable zone {
   description = "Zone"
-  default = "europe-west1-d"
+  default     = "europe-west1-d"
 }
 
 # определение ssh-ключа
@@ -29,4 +29,14 @@ variable node_count {
 # определение образа диска ВМ
 variable disk_image {
   description = "Disk image"
+}
+
+variable app_disk_image {
+  description = "Disk image for reddit app"
+  default     = "reddit-app-base"
+}
+
+variable db_disk_image {
+  description = "Disk image for reddit db"
+  default     = "reddit-db-base"
 }
