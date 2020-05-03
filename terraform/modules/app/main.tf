@@ -16,22 +16,22 @@ resource "google_compute_instance" "app" {
     }
 
     # параметры подключения провижинеров
-    connection {
-        type  = "ssh"
-        user  = "appuser"
-        agent = true
+#    connection {
+#        type  = "ssh"
+#        user  = "appuser"
+#        agent = true
         # путь до приватного ключа
         #private_key = file(var.private_key_path)
-        host = google_compute_instance.app.network_interface.0.access_config.0.nat_ip
-    }
+#        host = google_compute_instance.app.network_interface.0.access_config.0.nat_ip
+#    }
     # настройка приложения puma
-    provisioner "file" {
-        source      = "files/puma.service"
-        destination = "/tmp/puma.service"
-    }
-    provisioner "remote-exec" {
-        script = "files/deploy.sh"
-    }
+#    provisioner "file" {
+#        source      = "files/puma.service"
+#        destination = "/tmp/puma.service"
+#    }
+#    provisioner "remote-exec" {
+#        script = "files/deploy.sh"
+#    }
 }
 
 # Правило для app

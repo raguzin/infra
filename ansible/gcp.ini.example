@@ -1,0 +1,8 @@
+[gce]
+gce_service_account_email_address = serviceaccount@mail
+gce_service_account_pem_file_path = "path to service account json"
+gce_project_id = project_id
+
+[inventory]
+# Use external IP addresses to connect
+inventory_ip_type = external
