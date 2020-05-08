@@ -12,7 +12,9 @@
     <b>provisioners</b> секция устанавливает нужное ПО, производит настройку системы и конфигурацию приложений на
     созданной ВМ.<br>
     <b>install_mongodb.sh и install_ruby.sh</b> - bash скрипты для установки ruby и mongodb в baked-образ.<br>
-    <b>deploy_app.sh</b> - bash скрипт для установки прилоежния puma.</p>
+    <b>deploy_app.sh</b> - bash скрипт для установки прилоежния puma.<br>
+    <b>app.json</b> - Packer шаблон для создания образа app. Provision с помощью Ansible playbook <b>ansible/packer_app.yml</b>.<br>
+    <b>db.json</b> - Packer шаблон для создания образа db. Provision с помощью Ansible playbook <b>ansible/packer_db.yml</b>.</p>
 
 <p><b>Параметры для шаблона:</b><br>
     • ID проекта (обязательно)<br>
@@ -80,7 +82,15 @@
 <br>
 <br>
 <h2>ANSIBLE</h2>
-<p>Начало работы с Ansible. С помощью Terraform разворачивает инфрсатруктура stage в gcp. В Ansible создается сначала статический файл инвентаризации и проверяется взаимодействие с развернутыми машнами. Затем настраиваетс динамическая инвентразиация с помощью модуля gcp_compute для работы с GCE. Для этого:</p>
-<p>Содается файл <b>gcp.yml</b>, содержайщий парметры инвентразации.<br>
+<p>С помощью Terraform разворачивает инфрсатруктура stage в gcp.</p>
+<p><b>Инвентаризация.</b> В Ansible создается сначала статический файл инвентаризации и проверяется взаимодействие с развернутыми машнами. Затем настраиваетс динамическая инвентразиация с помощью модуля gcp_compute для работы с GCE. Для этого:<br>
+Содается файл <b>gcp.yml</b>, содержайщий парметры инвентразации.<br>
 Создается файл <b>gcp.ini</b>, содержащий информацию для подключения с проекту GCP через serviceaccoun.<br>
 В файле <b>ansible.cfg</b> в модуле <b>[inventory]</b> указывается <b>enable_plugins = gcp_compute</b>.</p>
+<p><b>Playbook'и:</b><br>
+<b>reddit_app_one_play.yml</b> - один playbook, один сценарий. Работа с тегами.<br>
+<b>reddit_app_multiple_plays.yml</b> - один playbook, несколько сценариев. Работа с тегами.<br>
+<b>site.yml</b> - главный playbook, который будет включать в себя три:<br>
+<b>app.yml</b> - playbook для настройки сервера приложений.<br>
+<b>db.yml</b> - playbook для настройки сервера БД.<br>
+<b>deloy.yml</b> - playbook, для развертывания приложения.<br></p>
