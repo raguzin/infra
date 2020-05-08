@@ -3,7 +3,7 @@
       hosts: app # <-- Для каких хостов будут выполняться описанные ниже таски (hosts)
       become: true
       vars:
-        db_host: 10.132.0.60 # <-- подставьте сюда ваш внутренний IP
+        db_host: 10.132.15.192 # <-- подставьте сюда ваш внутренний IP
       tasks:    
         - name: Add unit file for Puma
           copy:

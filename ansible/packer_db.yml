@@ -1,0 +1,28 @@
+---
+    - name: Install MongoDB # <-- Словесное описание сценария (name)
+      hosts: all # <-- Для каких хостов будут выполняться описанные ниже таски (hosts)
+      become: true # <-- Права root ко всему сценарию
+      tasks: # <-- Блок тасков (заданий), которые будут выполняться для данных хостов
+        # Добавим ключ репозитория для последующей работы с ним
+        - name: Add APT key
+          apt_key:
+            id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+            keyserver: keyserver.ubuntu.com
+      
+        # Подключаем репозиторий с пакетами mongodb    
+        - name: Add APT repository
+          apt_repository:
+            repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse
+            state: present
+        
+        # Выполним установку пакета
+        - name: Install mongodb package
+          apt:
+            name: mongodb-org
+            state: present
+        
+        # Включаем сервис
+        - name: Configure service supervisor
+          systemd:
+            name: mongod
+            enabled: yes
