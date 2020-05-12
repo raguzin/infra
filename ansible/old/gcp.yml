@@ -1,9 +1,0 @@
----
-plugin: gcp_compute
-projects:
-  - ornate-bond-273910
-zones:
-  - "europe-west1-d"
-filters: []
-auth_kind: serviceaccount
-service_account_file: /mnt/c/Users/Root/Documents/GCP/ornate-bond-273910-1af484023d56.json
