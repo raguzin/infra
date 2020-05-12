@@ -1,0 +1,20 @@
+---
+plugin: gcp_compute
+projects:
+  - ornate-bond-273910
+zones:
+  - "europe-west1-d"
+keyed_groups:
+  - key: labels
+    separator: ''
+hostnames:
+  # List host by name instead of the default public ip
+  - name
+compose:
+  # Set an inventory parameter to use the Public IP address to connect to the host
+  # For Private ip use "networkInterfaces[0].networkIP"
+  ansible_host: networkInterfaces[0].accessConfigs[0].natIP
+filters: []
+
+auth_kind: serviceaccount
+service_account_file: /mnt/c/Users/Root/Documents/GCP/ornate-bond-273910-1af484023d56.json
