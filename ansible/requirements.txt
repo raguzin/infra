@@ -1,1 +1,6 @@
 ansible>=2.9
+molecule==2.22
+testinfra>=1.10
+python-vagrant>=0.5.15
+
+# ERROR: molecule 2.22 has requirement testinfra<4,>=3.0.6, but you'll have testinfra 5.1.0 which is incompatible.
